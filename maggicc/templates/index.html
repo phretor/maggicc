@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% import 'helpers/publications.html' as p %}
+
+{% block header %}
+<header id="intro" class="row">
+  <section id="hello" class="six columns">
+    <h1>Hello!</h1>
+    <p>I am a Post-doctorate Research Assistant
+      at <a href="http://www.dei.polimi.it">Dipartimento di
+      Elettronica e
+      Informazione</a>, <a href="http://polimi.it">Politecnico
+      di Milano</a> in Italy, working at
+      the <acronym title="Novel, Emerging Computing System
+      Technologies">NECST</acronym> Lab with
+      <a href="http://home.dei.polimi.it/zanero/">Prof. Stefano
+        Zanero</a>. My research interests revolve around
+        web security and anomaly detection.</p>
+
+        <a href="http://cv.maggi.cc/" class="right radius button black small">See my CV (PDF)</a>
+  </section>
+
+  <div class="six columns">
+    <img id="my-photo" class="right" src="{{ url_for('static', filename='images/fede.jpg') }}" alt="Me" />
+  </div>
+</header>
+{% endblock header %}
+
+{% block content %}
+<section class="four columns">
+<h3>Contact information</h3>
+
+  <p>Email is the quickest way to contact me. Should you need
+    to communicate with me privately, please use
+    my <acronym title="GNU Privacy
+    Guard">GPG</acronym>/<acronym title="Pretty Good
+    Privacy">PGP</acronym> <a href="downloads/gpg_pk.asc">public
+    key</a>.</p>
+
+  <ul>
+    <li><span class="glyph general">r</span> <a href="tel:+39-02-2399-3654">+39-02-2399-3564</a></li>
+    <li><span class="glyph general">h</span> <a href="mailto:fmaggi@elet.polimi.it">fmaggi@elet.polimi.it</a></li>
+  </ul>
+
+  <h4><span class="glyph general">6</span> Snail Mail</h4>
+  <div class="row" id="map"></div>
+
+  <script>
+    var map = new L.Map('map');
+
+    var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/22677/256/{z}/{x}/{y}.png';
+
+    var popup = new L.Popup();
+    popup.setLatLng(new L.LatLng(45.47870, 9.23249));
+    popup.setContent("<strong>Federico Maggi</strong><br />DEI, Politecnico di Milano<br /><a href=\"#\">Via Ponzio 34/5</a><br /><a href=\"#\">20133 Milano</a>");
+    map.openPopup(popup);
+
+    cloudmade = new L.TileLayer(cloudmadeUrl);
+    map.setView(new L.LatLng(45.7, 9.13249), 8).addLayer(cloudmade);
+  </script>
+</section>
+
+<section class="eight columns">
+  <h3>Selected Publications</h3>
+
+  {% for publication in data.selected_publications|publication_sorter %}
+    {{ p.render_publication(publication.slug, publication.data, publication.snippet) }}
+  {% endfor %}
+
+  <a href="/publications/" class="right radius button small">See all →</a>
+</section>
+{% endblock content %}

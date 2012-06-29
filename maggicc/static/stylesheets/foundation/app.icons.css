@@ -1,0 +1,10 @@
+@import url('../../lib/foundation-icons-all/foundation-icons-general/stylesheets/foundation-icons-general.css');
+@import url('../../lib/foundation-icons-all/foundation-icons-general-enclosed/stylesheets/foundation-icons-general-enclosed.css');
+@import url('../../lib/foundation-icons-all/foundation-icons-social/stylesheets/foundation-icons-social.css');
+
+a.glyph,
+a.glyph:link,
+a .glyph,
+a:link .glyph {
+    cursor: pointer !important;
+}

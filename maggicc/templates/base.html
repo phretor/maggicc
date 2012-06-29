@@ -1,0 +1,103 @@
+<!doctype html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>{% block title %}{% if page and page.title %} {{page.title}} | {% endif %}Federico Maggi - DEI, Politecnico di Milano{% endblock title %}</title>
+
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Oswald|Josefin+Sans:300,400|Open+Sans|Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    
+    <!-- CSS -->
+    {% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/foundation/stylesheets/foundation.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/foundation-glyphicons/stylesheets/foundation-glyphicons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/foundation/app.icons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/foundation/app.css') }}">
+    <!--[if lt IE 9]><link rel="stylesheet" href="{{ url_for('static', filename='lib/foundation/stylesheets/ie.css') }}"><![endif]-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/leaflet/dist/leaflet.css') }}" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="{{ url_for('static', filename='lib/leaflet.ie.css') }}" /><![endif]-->
+    {% endblock css %}
+
+    <!-- Scripts -->
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+
+  <body>
+    <div id="navbar" class="container">
+      <div class="row">
+        <div class="four columns">
+          <a id="title" href="/"><span class="glyph general">-</span> federico<strong>maggi</strong></a>
+        </div>
+        <div class="eight columns hide-on-phones">
+          {% for slug, page in pages.iteritems() %}
+              {% if page.visible %}
+      	  <strong class="right">
+              <a href="/{{ slug }}" class="{% if current == slug %}current {% endif %}"><span class="glyph general">{{page.gliph}}</span> {{ page.title }}</a>
+      	  </strong>
+              {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="page">
+      <!-- page/ -->
+      {% block page %}
+      
+      <!-- header/ -->
+      {% block header %}
+      <header id="title" class="row">
+        {% if page and page.title %}<h2>{{page.title}}</h2>{% endif %}
+        {% block postheader %}{% endblock %}
+      </header>
+      {% endblock header %}
+      <!-- /header -->
+      
+      <hr />
+
+      <div class="row">
+        <!-- content/ -->
+        {% block content %}{% endblock content %}
+        <!-- /content -->
+      </div>
+
+      {% endblock page %}
+      <!-- /page -->
+
+      <hr />
+
+      <footer class="row">
+        <!-- footer/ -->
+        {% block footer %}
+        <div class="four columns">
+            &copy; 2012, Federico Maggi. Some rights are reserved.
+        </div>
+        <div class="four columns offset-by-four">
+          <p class="right">Powered by <a href="http://foundation.zurb.com">Zurb Foundation</a> and <a href="http://flask.pocoo.org">Flask</a>.</p>
+        </div>
+        {% endblock footer %}
+        <!-- /footer -->
+      </footer>
+
+    <!--Scripts-->
+    {% block scripts %}
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/foundation/javascripts/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/foundation/javascripts/jquery.placeholder.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/foundation/javascripts/jquery.tooltips.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/foundation/javascripts/modernizr.foundation.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/foundation/javascripts/foundation.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/leaflet/dist/leaflet.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='javascripts/foundation/app.js') }}"></script>
+    {% endblock scripts %}
+
+  </body>
+</html>

@@ -1,0 +1,182 @@
+/* Customizations */
+
+body {
+    font-family: 'Open Sans', 'Helvetica Nueve', sans-serif;
+    padding-bottom: 5em;
+    background: #eee url(http://s.ytimg.com/yt/imgbin/www-refreshbg-vflC3wnbM.png) repeat 0 0;
+    font-size: 1.5em;
+}
+
+p {
+    font-size: 1em;
+}
+
+hr {
+    margin-top: 3em;
+    margin-bottom: 3em;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #fff;
+   }
+
+h1, h2, h3, h4, h5 {
+    color: #444;
+    letter-spacing: -0.04em;
+    text-shadow: 0 1px 2px #fff;
+    text-transform: uppercase;
+}
+
+#hello h1 {
+    text-transform: none;
+}
+
+/* Leaflet */
+.leaflet-control-attribution {
+    display: none !important;
+}
+
+.leaflet-container a,
+.leaflet-container a:link,
+.leaflet-container a:visited {
+    color: #2A85E8;
+}
+
+/* map */
+#map {
+    height: 180px;
+}
+
+/* my photo */
+#my-photo {
+    border-bottom: solid 10px #00a5ff;
+    border-top: solid 4px #005380;
+    margin-top: -4px;
+    width: 400px;
+    height: 400px;
+    z-index: 1010;
+}
+
+/* publications */
+.publication {
+    margin-bottom: 1.3em;
+}
+
+.publication span {
+    display: block;
+}
+
+.publication-title {
+    text-transform: none;
+    font-weight: 800;
+    letter-spacing: -0.06em;
+}
+
+.publication .publication-authors,
+.publication .publication-extra {
+    margin-bottom: .4em;
+}
+
+.publication .publication-where {
+    color: black;
+}
+
+.publication .publication-authors {
+    font-size: 1.1em;
+}
+
+/* title */
+#title {
+    margin-top: 5em;
+}
+
+/* intro */
+#hello {
+    margin-top: 5em;
+}
+
+#intro p {
+    font-family: 'Open Sans', 'Helvetica Nueve', sans-serif;
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+
+/* navbar */
+#navbar {
+    background: #222222;
+    border-bottom: solid 4px #00a5ff;
+    padding: 15px 20px 13px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    -webkit-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.35);
+}
+
+/* #page */
+#page {
+    margin-top: 54px;
+}
+
+@media handheld, only screen and (max-width: 767px) {
+    #navbar {
+        padding-left: 20px;
+        padding-right: 20px; }
+}
+
+#navbar h1, #navbar h2 {
+    margin-bottom: 0;
+    line-height: 1; }
+#navbar h1 {
+    color: white;
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-weight: 800; }
+#navbar h1 a { color: #fff; }
+#navbar h2 a {
+    text-indent: -99999px;
+    display: block;
+    width: 82px;
+    height: 14px;
+}
+
+#navbar strong a {
+    line-height: 14px;
+    color: #fff;
+    font-weight: 500;
+    padding-right: 12px;
+}
+
+#navbar strong a.button {
+    padding: 4px 10px;
+    font-weight: bold;
+}
+
+#title {
+    font-size: 1.3em;
+    color: #ccc;
+}
+
+#title strong {
+    color: #eee;
+}
+
+#title:hover {
+    color: #eee;
+}
+
+/* BibTeX */
+.bibtex {
+    font-family: monospace;
+    font-size: smaller;
+    line-height: 1.2em;
+    word-wrap: break-word;
+    height: 300px;
+    overflow: auto;
+}
+
+/* Abstract */
+.abstract-title {
+    text-transform: none;
+}

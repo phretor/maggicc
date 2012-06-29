@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+
+{% block postheader %}
+<dl class="sub-nav">
+    <dt>Jump to:</dt>
+    <dd><a class="smooth" href="#synopsis">Synopsis</a></dd>
+    <dd><a class="smooth" href="#current">Current Research Interests</a></dd>
+    <dd><a class="smooth" href="#service">Service</a></dd>
+</dl>
+{% endblock %}
+
+{% block content %}
+
+<section id="synopsis">
+<h4>Synopsis</h4>
+<p>My research focuses on computer security. During my Ph.D. I studied and made
+contributions in the field of intrusion detection. More precisely, I developed
+and tested anomaly-based techniques that mitigate Internet threats by</p>
+
+<ol>
+    <li>avoiding their spread via vulnerable web applications,</li>
+    <li>detecting unexpected activities in the operating system's kernel (sing
+    of malware infections or compromised processes),</li> <li>dealing with high
+    number of alerts using alert correlation.</li> </ol>
+
+<p>In the past, I also did some studies the field of theoretical computer science and contributed with the definition and implementation of a recognizer for rational trace languages.</p>
+</section>
+
+<hr />
+
+<section id="current">
+<h4>Current research interests</h4>
+<p>My research activity in computer security is characterized by a multitude of
+topics: malware, visualization, social networks, web. However, whenever I
+stumble upon a new topic or idea, I tend to let it grow into a research
+project. In the following, I will go through some of the project that I have
+been working on.</p>
+
+<div class="container" id="avnaming">
+    <div class="row">
+        <div class="four columns">
+            <br />
+            <img src="{{ url_for('static', filename='assets/research/avnaming.jpg') }}" alt="Project image" />
+        </div>
+        <div class="eight columns">
+            <h5>Malware naming conventions inconsistencies</h5>
+
+            <p>I have been studying the different malware naming schemes
+            adopted by anti-malware software, toward creating a global map of
+            the current knowledge about malware. Malware analysts, and in
+            particular antivirus vendors, never agreed on naming conventions.
+            This leads to confusion and difficulty&mdash;more for researchers
+            than for practitioners&mdash;for example, when comparing different
+            antivirus engines, when integrating and systematizing known
+            threats, or comparing the classifications given by different
+            detectors.  Clearly, solving naming inconsistencies is a very
+            difficult task, as it requires that vendors agree on a unified
+            naming convention. More importantly, solving inconsistencies is
+            impossible without knowing exactly where they are. In this project
+            I took a step back and concentrated on the problem of
+            <em>finding</em> inconsistencies.  I leveraged graph-based models
+            of each vendor's naming convention, which I used to define
+            precisely the notion of inconsistency, and to measure
+            quantitatively the overall degree of inconsistency between vendors.
+            More importantly, I proposed a fast algorithm that finds
+            non-trivial (i.e., beyond syntactic differences) inconsistencies. I
+            experimented this technique on four major antivirus vendors and
+            98,798 real-world malware samples.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="visualization">
+    <div class="row">
+        <div class="four columns">
+            <br />
+            <img src="{{ url_for('static', filename='assets/research/visualization.jpg') }}" alt="Project image" />
+        </div>
+        <div class="eight columns">
+            <h5>Visualization of malicious activity on the Internet</h5>
+
+            <p>Recently, I made contributions in the fields of security
+            visualization, with the twofold goal of increasing user awareness
+            and providing experts with usable investigation tools: Our tool,
+            called BURN, received the best paper award at VizSec. Manual
+            analysis of security-related events is still a necessity to
+            investigate non-trivial cyber attacks. This task is particularly
+            hard when the events involve slow, stealthy and large-scale
+            activities typical of the modern cybercriminals' strategy. In this
+            regard, visualization tools can effectively help analysts in their
+            investigations. BURN is an interactive visualization tool for
+            displaying autonomous systems exhibiting rogue activity that helps
+            at finding misbehaving networks through visual and interactive
+            exploration. Up to seven values are displayed in a single visual
+            element, while avoiding cumbersome and confusing maps. To this end,
+            animations and alpha channels are leveraged to create simple views
+            that highlight relevant activity patterns. In addition, BURN
+            incorporates a simple algorithm to identify migrations of nefarious
+            services across autonomous systems, which can support, for
+            instance, root-cause analysis and law enforcement
+            investigations.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="iclearshot">
+    <div class="row">
+        <div class="four columns">
+            <br />
+            <img src="{{ url_for('static', filename='assets/research/iclearshot.jpg') }}" alt="Project image" />
+        </div>
+        <div class="eight columns">
+            <h5>Automatic shoulder surfing</h5>
+
+            <p>Given the spread of mobile devices, I have been also studying
+            the extent to which automated shoulder surfing attacks may be used
+            to circumvent software protections, especially against mobile
+            touchscreen devices that expose sensitive information during
+            typing. I arise this concern by presenting an automatic attack
+            against modern touchscreen keyboards. I demonstrate the attack
+            against the Apple iPhone although it can be adapted to other
+            devices (e.g., Android) that employ similar key-magnifying
+            keyboards. The attack processes the stream of frames from a video
+            camera (e.g., surveillance or portable camera) and recognizes
+            keystrokes online, in a fraction of the time needed to perform the
+            same task by direct observation or offline analysis of a recorded
+            video, which can be unfeasible for large amount of data.  The
+            attack detects, tracks, and rectifies the target touchscreen, thus
+            following the device or camera's movements and eliminating possible
+            perspective distortions and rotations In real-world settings, the
+            attack can automatically recognize up to 97.07 percent of the
+            keystrokes (91.03 on average), with 1.15 percent of errors (3.16 on
+            average) at a speed ranging from 37 to 51 keystrokes per
+            minute.</p>
+        </div>
+    </div>
+</div>
+
+{#
+<div class="container" id="webmeasurement">
+    <div class="row">
+        <div class="four columns">
+            <br />
+            <img src="{{ url_for('static', filename='assets/research/webmeasurement.jpg') }}" alt="Project image" />
+        </div>
+        <div class="eight columns">
+            <h5>Social networks and web services measurements</h5>
+            <p>TODO (longshore, face privacy, resoauth)</p>
+        </div>
+    </div>
+</div>
+</section>
+#}
+
+<hr />
+
+<section id="service">
+<h4>Service</h4>
+<h5>Technical Program Committee Membership</h5>
+<ul class="square">
+    <li>7th ENISA European Conference on Network Defense (EC2ND 2011).</li>
+    <li>First SysSec Workshop (SysSec 2011).</li>
+    <li>Workshop on Building Analysis Datasets and Gathering Experience
+    Returns for Security (BADGERS 2011).</li>
+</ul>
+
+<h5>Referee Service</h5>
+<p>I have served for the following conferences and journals as a reviewer
+(or external reviewer).</p>
+<ul class="square">
+    <li>IEEE Transactions on Dependable and Secure Computing (TDSC)</li>
+    <li>Journal in Computer Virology (Springer)</li>
+    <li>IEEE Intl. Conf. on Complexity in Engineering (COMPENG 2010)</li>
+    <li>5th ENISA European Conf. on Network Defense (EC2ND 2009)</li>
+    <li>Fifth Conference on Detection of Intrusions and Malware &amp;
+  Vulnerability Assessment (DIMVA 2008)</li>
+  <li>International Journal of Information Security</li>
+  <li>ACM Transactions on Information and System Security</li>
+</ul>
+
+<h5>Conference and Workshop Organization</h5>
+<ul class="square">
+<li>Publication and Publicity Chair for the 7th ENISA European
+  Conference on Network Defense (EC2ND 2011).</li>
+<li>Publication and Publicity Chair for the First SysSec Workshop
+  (SysSec 2011).</li>
+<li>Publication Chair for the International Workshop on Building
+  Analysis Datasets and Gathering Experience Returns for Security
+  (BADGERS 2011).</li>
+<li>Publicity Chair for the IEEE Intl. Conf. on Complexity in
+  Engineering (COMPENG 2010).</li>
+<li>Publicity Chair for the 5th ENISA European Conference on Network
+  Defense (EC2ND 2009).</li>
+</ul>
+</section>
+{% endblock %}

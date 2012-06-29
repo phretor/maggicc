@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% import 'helpers/publications.html' as p %}
+
+{% block postheader %}
+<dl class="sub-nav">
+    <dt>Jump to:</dt>
+    {% for type in data.types_order %}
+       {% if data.publications[type] %}
+         <dd><a class="smooth" href="#{{type|lower|replace(' ', '-')}}">{{type}}</a></dd>
+       {% endif %}
+    {% endfor %}
+</dl>
+{% endblock %}
+
+{% block content %}
+ {% for type in data.types_order %}
+   {% if data.publications[type] %}
+       {% if not loop.first %}<hr />{% endif %}
+       <h3 id="{{type|lower|replace(' ', '-')}}">{{type}} <a class="smooth glyph general" href="#page">w</a></h3>
+       {% for publication in data.publications[type]|publication_sorter %}
+         {{ p.render_publication(publication.slug, publication.data, publication.snippet, publication.files) }}
+       {% endfor %}
+   {% endif %}
+ {% endfor %}
+{% endblock content %}

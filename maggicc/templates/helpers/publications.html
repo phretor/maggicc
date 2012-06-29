@@ -1,0 +1,37 @@
+{% macro render_authors(authors) %}
+    {% for author in authors %}
+      <a>{{author|format_author|safe}}</a>{% if not loop.last %},&nbsp;{% endif %}
+    {% endfor %}
+{% endmacro %}
+
+{% macro render_publication_metadata(slug, data) %}
+  <h5 class="publication-title">{{data.fields.title}}</h5>
+  <span class="publication-authors">{{ render_authors(data.persons.author) }}</span>
+  <span class="publication-where">{{data.fields|publication_where}}</span>
+  <span class="publication-extra">{{data.fields|publication_date}}, {{data.fields|publication_venue}}</span>
+{% endmacro %}
+
+{% macro render_publication(slug, data, snippet, files) %}
+<div class="publication" id="{{slug}}">
+  <span class="publication-stuff">
+      {{ render_publication_metadata(slug, data) }}
+      {% for file in files %}
+          <a class="small white button radius" href="{{ url_for('static', filename=file.url) }}">{{ file.title|capitalize }} ({{ file.extension|upper }})</a>
+      {% endfor %}
+      <a class="small white button radius" href="#" data-reveal-id="bibtex-{{slug}}">BibTeX</a>
+      <a class="small white button radius" href="#" data-reveal-id="abstract-{{slug}}">Abstract</a>
+    <div class="reveal-modal" id="bibtex-{{slug}}">
+        <h3>BibTeX</h3>
+        <pre class="bibtex">{{snippet}}</pre>
+        <br />
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+    <div class="reveal-modal" id="abstract-{{slug}}">
+        {{ render_publication_metadata(slug, data) }}
+        <p class="abstract">{{data.fields.abstract}}</p>
+        <br />
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+  </span>
+</div>
+{% endmacro %}
