@@ -23,9 +23,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/foundation/app.icons.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/foundation/app.css') }}">
     <!--[if lt IE 9]><link rel="stylesheet" href="{{ url_for('static', filename='lib/foundation/stylesheets/ie.css') }}"><![endif]-->
+
+    <!--leaflet-->
     <link rel="stylesheet" href="{{ url_for('static', filename='lib/leaflet/dist/leaflet.css') }}" />
     <!--[if lte IE 8]><link rel="stylesheet" href="{{ url_for('static', filename='lib/leaflet.ie.css') }}" /><![endif]-->
     {% endblock css %}
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/leaflet/dist/leaflet.js') }}"></script>
 
     <!-- Scripts -->
     <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -95,7 +98,6 @@
     <script type="text/javascript" src="{{ url_for('static', filename='lib/foundation/javascripts/jquery.tooltips.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='lib/foundation/javascripts/modernizr.foundation.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='lib/foundation/javascripts/foundation.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='lib/leaflet/dist/leaflet.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='javascripts/foundation/app.js') }}"></script>
     {% endblock scripts %}
 
