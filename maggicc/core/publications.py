@@ -21,9 +21,6 @@ from pybtex.style.template import join
 from maggicc.settings import Config
 config = Config()
 
-from IPython import embed
-
-
 class NameStyle(BaseNameStyle):
     name = 'flast'
     aliases = 'f_last'
