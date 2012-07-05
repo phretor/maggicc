@@ -8,7 +8,7 @@
   <h5 class="publication-title">{{data.fields.title}}</h5>
   <span class="publication-authors">{{ render_authors(data.persons.author) }}</span>
   <span class="publication-where">{{data.fields|publication_where}}</span>
-  <span class="publication-extra">{{data.fields|publication_date}}, {{data.fields|publication_venue}}</span>
+  <span class="publication-extra">{{data.fields|publication_date}}, {{data.fields|publication_extras}}</span>
 {% endmacro %}
 
 {% macro render_publication(slug, data, snippet, files) %}

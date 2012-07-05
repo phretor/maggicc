@@ -16,14 +16,17 @@ def publication_sorter(publication_list):
 def publication_date(fields):
     return publication_datetime(fields).strftime('%d/%m/%Y')
 
-def publication_venue(fields):
+def publication_extras(fields):
     if 'venue' in fields:
         return fields['venue']
 
     if 'address' in fields:
         return fields['address']
 
-    return 'Unknown'
+    if 'institution' in fields:
+        return fields['institution']
+
+    return ''
 
 def publication_where(fields):
     if 'journal' in fields:
@@ -32,4 +35,4 @@ def publication_where(fields):
     if 'booktitle' in fields:
         return fields['booktitle']
 
-    return 'Unknown'
+    return ''

@@ -5,6 +5,7 @@ import glob
 import string
 import logging
 import datetime
+import calendar
 
 from operator import attrgetter
 from operator import itemgetter
@@ -21,6 +22,8 @@ from pybtex.style.template import join
 from maggicc.settings import Config
 config = Config()
 
+MONTH_IDX = dict((v,k) for k,v in enumerate(calendar.month_abbr))
+
 class NameStyle(BaseNameStyle):
     name = 'flast'
     aliases = 'f_last'
@@ -35,8 +38,18 @@ class NameStyle(BaseNameStyle):
 
 def publication_date(fields):
     if 'date' not in fields and 'year' in fields:
-        fields['date'] = '%s-01-01' % fields['year']
-
+        if 'month' in fields:
+            if len(fields['month']) == 2 and isinstance(fields['month'], int):
+                fields['date'] = '%s-%m-01' % (fields['year'], fields['month'])
+            elif len(fields['month']) >= 3 and isinstance(fields['month'], basestring):
+                try:
+                    month = MONTH_IDX[fields['month'][0:3]]
+                except KeyError:
+                    month = None
+                if month is not None:
+                    fields['date'] = '%s-%s-01' % (fields['year'], month)
+        else:
+            fields['date'] = '%s-01-01' % fields['year']
     try:
         return datetime.datetime.strptime(fields['date'], '%Y-%m-%d')
     except Exception, e:
