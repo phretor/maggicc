@@ -21,6 +21,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='lib/foundation/stylesheets/foundation.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/foundation/app.icons.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/foundation/app.css') }}">
+
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/foundation/javascripts/modernizr.foundation.js') }}"></script>
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
     <!--[if lt IE 9]><link rel="stylesheet" href="{{ url_for('static', filename='lib/foundation/stylesheets/ie.css') }}"><![endif]-->
 
     <!--leaflet-->
@@ -28,37 +33,43 @@
     <!--[if lte IE 8]><link rel="stylesheet" href="{{ url_for('static', filename='lib/leaflet.ie.css') }}" /><![endif]-->
     {% endblock css %}
     <script type="text/javascript" src="{{ url_for('static', filename='lib/leaflet/dist/leaflet.js') }}"></script>
+</head>
 
-    <!-- Scripts -->
-    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  </head>
+<body>
+    <nav class="top-bar fixed">
+        <ul>
+            <li class="name"><h1><a href="/">federico<strong>maggi</strong></a></h1></li>
+            <li class="divider"></li>
+            <li class="toggle-topbar"><a href="#"></a></li>
+        </ul>
 
-  <body>
-    <div id="navbar" class="container">
-      <div class="row">
-        <div class="four columns">
-          <a id="title" href="/"><span class="glyph general">-</span> federico<strong>maggi</strong></a>
-        </div>
-        <div class="eight columns hide-on-phones">
-          {% for slug, page in pages.iteritems() %}
-              {% if page.visible %}
-      	  <strong class="right">
-              <a href="/{{ slug }}" class="{% if current == slug %}current {% endif %}"><span class="glyph general">{{page.gliph}}</span> {{ page.title }}</a>
-      	  </strong>
-              {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-    </div>
+        <section>
+            <ul class="left">
+                <li class="claim">researcher and <a href="http://federicomaggi.com">photographer</a>.</li>
+            </ul>
+            <ul class="right">
+                {% for slug, page in pages.iteritems() %}
+                    {% if page.visible %}
+                    <li class="{{ slug }} {% if current == slug %}active {% endif %}"><a href="/{{ slug }}">{{ page.title }}</a></li>
+                        <li class="divider"></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </section>
+    </nav>
 
-    <div class="container" id="page">
+    <div id="page">
       <!-- page/ -->
       {% block page %}
       
       <!-- header/ -->
       {% block header %}
       <header id="title" class="row">
-        {% if page and page.title %}<h2>{{page.title}}</h2>{% endif %}
+        {% block header_title %}
+            <div class="twelve columns">
+                <h2>{% block inner_title %}{{page.title}}{% endblock %}</h2>
+            </div>
+        {% endblock %}
         {% block postheader %}{% endblock %}
       </header>
       {% endblock header %}
@@ -80,10 +91,10 @@
       <footer class="row">
         <!-- footer/ -->
         {% block footer %}
-        <div class="four columns">
+        <div class="five columns">
             &copy; 2012, Federico Maggi. Some rights are reserved.
         </div>
-        <div class="four columns offset-by-four">
+        <div class="four columns offset-by-three">
           <p class="right">Powered by <a href="http://foundation.zurb.com">Zurb Foundation</a> and <a href="http://flask.pocoo.org">Flask</a>.</p>
         </div>
         {% endblock footer %}
@@ -92,11 +103,8 @@
 
     <!--Scripts-->
     {% block scripts %}
-    <script type="text/javascript" src="{{ url_for('static', filename='lib/foundation/javascripts/jquery.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='lib/foundation/javascripts/jquery.placeholder.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='lib/foundation/javascripts/jquery.tooltips.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='lib/foundation/javascripts/modernizr.foundation.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='lib/foundation/javascripts/foundation.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/foundation/javascripts/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/foundation/javascripts/foundation.min.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='javascripts/foundation/app.js') }}"></script>
     {% endblock scripts %}
 

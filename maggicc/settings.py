@@ -1,8 +1,12 @@
+# -*- coding: utf8 -*-
+# vim: set fileencoding=utf8 :
+
 import os
 
 class Config(object):
     DEBUG = False
     BASE_PATH = os.path.dirname(os.path.abspath(__file__))
+    TEMPLATES_PATH = os.path.join(BASE_PATH, 'templates')
     STATIC_PATH = os.path.join(BASE_PATH, 'static')
     ASSETS_PATH = os.path.join(STATIC_PATH, 'assets')
     PUBLICATIONS_PATH = os.path.join(ASSETS_PATH, 'publications')
@@ -20,6 +24,10 @@ class Config(object):
             'visible': True,
             'gliph': '`',
             'title': 'Research'},
+        'teaching': {
+            'visible': True,
+            'gliph': 'a',
+            'title': 'Teaching'},
         }
 
     #publications

@@ -1,10 +1,63 @@
 /* Customizations */
 
 body {
-    font-family: 'Open Sans', 'Helvetica Nueve', sans-serif;
+    /* font-family: 'Open Sans', 'Helvetica Nueve', sans-serif; */
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
     padding-bottom: 5em;
-    background: #eee url(img/bg.png) repeat 0 0;
-    font-size: 1.5em;
+}
+
+ul.plain {
+    list-style-type: none;
+}
+
+.edition {
+    line-height: 20px;
+    height: 20px;
+    margin-left: 1%;
+}
+
+.edition i {
+    vertical-align: middle;
+    font-size: 20px;
+    color: #444;
+}
+
+/* top nav */
+.top-bar .right a,
+.top-bar .right a:link,
+.top-bar .right a:visited {
+    text-transform: uppercase;
+}
+
+.top-bar .right a:hover {
+    border-bottom: solid 2px #f60;
+}
+
+.top-bar .left li.claim {
+    color: #555;
+    padding-left: 10px;
+    letter-spacing: -0.1em;
+}
+
+.top-bar .left li.claim a:link,
+.top-bar .left li.claim a:visited,
+.top-bar .left li.claim a {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+    color: #555;
+    font-size: 1em;
+}
+
+.top-bar .left li.claim:hover {
+    background-color: #222;
+}
+
+.top-bar .left li.claim a:hover {
+    color: #777;
+    text-decoration: underline;
 }
 
 p {
@@ -20,8 +73,6 @@ hr {
 
 h1, h2, h3, h4, h5 {
     color: #444;
-    letter-spacing: -0.04em;
-    text-shadow: 0 1px 2px #fff;
     text-transform: uppercase;
 }
 
@@ -47,12 +98,10 @@ h1, h2, h3, h4, h5 {
 
 /* my photo */
 #my-photo {
-    border-bottom: solid 10px #00a5ff;
-    border-top: solid 4px #005380;
-    margin-top: -4px;
+    border-bottom: solid 2px #00a5ff;
+    margin-top: -12px;
     width: 400px;
     height: 400px;
-    z-index: 1010;
 }
 
 /* publications */
@@ -83,10 +132,6 @@ h1, h2, h3, h4, h5 {
     font-size: 1.1em;
 }
 
-/* title */
-#title {
-    margin-top: 5em;
-}
 
 /* intro */
 #hello {
@@ -94,76 +139,13 @@ h1, h2, h3, h4, h5 {
 }
 
 #intro p {
-    font-family: 'Open Sans', 'Helvetica Nueve', sans-serif;
     font-size: 1.5em;
     line-height: 1.5em;
-}
-
-/* navbar */
-#navbar {
-    background: #222222;
-    border-bottom: solid 4px #00a5ff;
-    padding: 15px 20px 13px 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    -webkit-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.35);
-    -moz-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.35);
-    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.35);
 }
 
 /* #page */
 #page {
     margin-top: 54px;
-}
-
-@media handheld, only screen and (max-width: 767px) {
-    #navbar {
-        padding-left: 20px;
-        padding-right: 20px; }
-}
-
-#navbar h1, #navbar h2 {
-    margin-bottom: 0;
-    line-height: 1; }
-#navbar h1 {
-    color: white;
-    font-size: 16px;
-    font-size: 1.6rem;
-    font-weight: 800; }
-#navbar h1 a { color: #fff; }
-#navbar h2 a {
-    text-indent: -99999px;
-    display: block;
-    width: 82px;
-    height: 14px;
-}
-
-#navbar strong a {
-    line-height: 14px;
-    color: #fff;
-    font-weight: 500;
-    padding-right: 12px;
-}
-
-#navbar strong a.button {
-    padding: 4px 10px;
-    font-weight: bold;
-}
-
-#title {
-    font-size: 1.3em;
-    color: #ccc;
-}
-
-#title strong {
-    color: #eee;
-}
-
-#title:hover {
-    color: #eee;
 }
 
 /* BibTeX */

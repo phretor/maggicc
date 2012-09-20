@@ -16,10 +16,10 @@
   <span class="publication-stuff">
       {{ render_publication_metadata(slug, data) }}
       {% for file in files %}
-          <a class="small white button radius" href="{{ url_for('static', filename=file.url) }}">{{ file.title|capitalize }} ({{ file.extension|upper }})</a>
+          <a class="small secondary button radius" href="{{ url_for('static', filename=file.url) }}">{{ file.title|capitalize }} ({{ file.extension|upper }})</a>
       {% endfor %}
-      <a class="small white button radius" href="#" data-reveal-id="bibtex-{{slug}}">BibTeX</a>
-      <a class="small white button radius" href="#" data-reveal-id="abstract-{{slug}}">Abstract</a>
+      <a class="small secondary button radius" href="#" data-reveal-id="bibtex-{{slug}}">BibTeX</a>
+      <a class="small secondary button radius" href="#" data-reveal-id="abstract-{{slug}}">Abstract</a>
     <div class="reveal-modal" id="bibtex-{{slug}}">
         <h3>BibTeX</h3>
         <pre class="bibtex">{{snippet}}</pre>
