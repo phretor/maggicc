@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block inner_title %}
+<h2>{% block course_data_title %}{% endblock %} <span class="label">{% block course_data_year_start %}{% endblock %}-{% block course_data_year_end %}{% endblock %}</span> <span class="success label">{% block course_data_org %}{% endblock %}</h2>
+{% endblock %}
+
+{% block postheader %}
+<div class="eight columns">
+    <p>{% block course_data_description %}{% endblock %}</p>
+
+    <h5>{% block course_content_news %}Aggiornamenti recenti{% endblock %}</h5>
+    {% block content_news %}
+    Nessun aggiornamento recente.
+    {% endblock %}
+</div>
+<div class="four columns panel">
+    <h4>{% block course_info %}Informazioni{% endblock %}</h4>
+    <p><a class="button small" href="{% block course_data_url %}{% endblock %}">{% block course_program %}Programma del corso{% endblock %} &raquo;</a></p>
+
+    <h6>{% block course_instructor %}Docente{% endblock %}</h6>
+    {% block course_data_instructor %}{% endblock %}
+    <br/>
+    <br/>
+
+    <h6>{% block course_ta %}Esercitatore{% endblock %}</h6>
+    {% block course_data_ta %}{% endblock %}
+    <br />
+    <br />
+
+    <h6>{% block course_lab %}Laboratorio{% endblock %}</h6>
+    {% block course_data_lab %}{% endblock %}
+    <br />
+</div>
+{% endblock %}
+
+{% block content %}
+    <h5>{% block course_content_class %}Lezioni{% endblock %}</h5>
+    {% block content_class %}
+    Nessuna informazione sulle lezioni.
+    {% endblock %}
+
+    <h5>{% block course_content_practice %}Esercitazioni{% endblock %}</h5>
+    {% block content_practice %}
+    Nessuna informazione sulle esercitazioni.
+    {% endblock %}
+{% endblock %}

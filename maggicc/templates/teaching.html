@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for code,course in data.courses.iteritems() %}
+    <h3 id="{{ code }}">{{ course.title }} ({{ code }})</h3>
+    <p>{{ course.desc }}</p>
+
+    <ul class="plain">
+    {% for edition,meta in course.editions.iteritems() %}
+    <li class="edition"><i class="general foundicon-calendar"></i> <a href="{{ url_for('view_teaching_detail', course=code, year=meta.year, lang=meta.lang) }}"><span class="label">{{ meta.year }}-{{ meta.year + 1 }}</span> <span class="success label">{{ meta.org }}</span></a></li>
+
+    {% endfor %}
+    </ul>
+{% endfor %}
+
+{% endblock %}
